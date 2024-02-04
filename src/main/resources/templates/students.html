@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+
+<h1>Students</h1><a href="/students/add">Add student</a><br><br>
+<table border="1">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Photo</th>
+        <th>Lesson </th>
+        <th>Usertype </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student:${students}">
+        <td th:text="${student.getId()}"></td>
+        <td th:text="${student.getName()}"></td>
+        <td th:text="${student.getSurname()}"></td>
+        <td th:text="${student.getEmail()}"></td>
+        <td><img th:if="${student.getPicName()!=null}" th:src="@{/getImage(picName=${student.getPicName()})}" width="40"></td>
+<td th:text="${student.getLesson().getTitle()}"></td>
+
+        <td th:text="${student.getUserType()}"></td>
+
+
+
+        <td><a th:href="@{'/students/update/' + ${student.getId()}}">Update</a> </td>
+        <td><a th:href="@{'/students/delete/' + ${student.getId()}}">Delete</a> </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

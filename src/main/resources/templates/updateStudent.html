@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Update Application<br>
+<form action="/students/update{id}" method="post" enctype="multipart/form-data">
+
+        Name <input type="text" name="name" th:value="${student.getName()}"><br><br>
+        Surname<input type ="text" name="=surname" th:value="${student.getSurname()}"><br><br>
+        Email<input type="text" name="email" th:value="${student.getEmail()}"><br><br>
+        Photo<input type="text" name="pic_name>" th:value="${student.getPic_name()}"><br><br>
+<!--        Lesson List <input type="text" name="lesson"><br><br>-->
+        <input type =submit value="add">
+    <input type="submit" value="Update"><br><br>
+</form>
+</body>
+</html>

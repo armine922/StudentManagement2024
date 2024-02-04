@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson list</title>
+</head>
+<body>
+<h1>Fill in the application</h1>
+<form action="/lessons/add" method="post">
+    Title<input type="text" name ="title"><br><br>
+    Duration<input type="text" name ="duration"><br><br>
+  Price  <input type="text" name ="price"><br><br>
+   Start Date <input type="date" name ="start_date"><br><br>
+    Teacher<select name="userId">
+    <option th:each="user:${users}" th:text="${user.getName()}" th:value="${user.getId()}"></option>
+</select>
+    <input type="submit" value="Add"><br><br>
+</form>
+
+</body>
+</html>
